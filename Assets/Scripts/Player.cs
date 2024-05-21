@@ -16,7 +16,6 @@ public class FPSController : MonoBehaviour
     public float lookXLimit = 100f;
 
     public GameObject bulletPrefab; 
-    public ParticleSystem muzzleFlash; 
     public AudioSource shootingSound;
 
     public float shootRange = 100f; 
@@ -92,11 +91,6 @@ public class FPSController : MonoBehaviour
             shootingSound.Play();
         }
 
-        if (muzzleFlash!= null)
-        {
-            muzzleFlash.Play();
-        }
-
         GameObject bullet = Instantiate(bulletPrefab, playerCamera.transform.position, playerCamera.transform.rotation);
 
         Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
@@ -107,6 +101,29 @@ public class FPSController : MonoBehaviour
 
 
         Destroy(bullet, shootRange / shootForce);
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            ShowLoserMenu();
+        }
+        if (other.CompareTag("Finish"))
+        {
+            ShowVictoryMenu();
+        }
+
+    }
+    void ShowLoserMenu()
+    {
+        Debug.Log("You've lost! Don't Worry, You can Try Again!");
+        LoserMenu.Instance.Show();
+    }
+
+    void ShowVictoryMenu()
+    {
+        Debug.Log("You've completed the level succesfully!");
+        VictoryMenu.Instance.Show();
     }
 }
 

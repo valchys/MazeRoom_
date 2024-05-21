@@ -62,7 +62,7 @@ public class MazeGenerator : MonoBehaviour
 
     private void PlaceRandomEnemies()
     {
-        int enemyCount = 3;
+        int enemyCount = 5;
 
         for (int i = 0; i < enemyCount; i++)
         {
@@ -71,7 +71,6 @@ public class MazeGenerator : MonoBehaviour
             if (randomCell!= null)
             {
                 GameObject enemy = Instantiate(enemyPrefab, randomCell.transform.position, Quaternion.identity);
-                enemy.transform.parent = transform; 
             }
         }
     }

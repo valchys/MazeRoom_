@@ -586,7 +586,6 @@ MonoBehaviour:
   lookSpeed: 5
   lookXLimit: 100
   bulletPrefab: {fileID: 8887845452658109817, guid: 840b3635900e4a0468c08fb2e4acbea3, type: 3}
-  muzzleFlash: {fileID: 0}
   shootingSound: {fileID: 0}
   shootRange: 100
   shootForce: 10
@@ -651,6 +650,7 @@ MonoBehaviour:
   _mazeWidth: 10
   _mazeDepth: 10
   enemyPrefab: {fileID: 0}
+  finishPrefab: {fileID: 0}
 --- !u!4 &1798839854
 Transform:
   m_ObjectHideFlags: 0
